@@ -1,0 +1,64 @@
+/* Tooltips */
+
+.filewhat {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: lightgray;
+    display: inline-block;
+    font-family: Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-size: 10pt;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    margin-left: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    word-wrap: break-word;
+    min-width: 220px;
+    max-width: 450px;
+    z-index: 1000000;
+    line-height: 1.2;
+}
+
+.filetype-header {
+    color: white;
+    font-weight: bold;
+}
+
+.filetype-description {
+    color: white;
+}
+
+.filewhat hr {
+    border-color: #797979 !important;
+    margin: 3px 0 !important;
+    height: 1px !important;
+}
+
+.filewhat .octicon {
+    color: lightgray;
+}
+
+.filewhat-fork .octicon {
+    margin-right: 2px;
+}
+
+.news .alert {
+    overflow: inherit !important;
+}
+
+/* Settings */
+
+#container {
+    width: 300px;
+}

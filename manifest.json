@@ -1,0 +1,33 @@
+{
+    "name": "SourceChecker",
+    "manifest_version": 2,
+    "version": "0.1",
+    "description": "This extension checks whether or not links in articles are associated with reputable scientific journals.",
+    "icons": {
+        "16": "public/icon/logo-16.png",
+        "48": "public/icon/logo-48.png",
+        "128": "public/icon/logo-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*",
+                "http://*/*"
+            ],
+            "js": [
+                "dist/axios.min.js",
+                "js/index.js",
+                "js/websites.js"
+            ]
+        }
+    ],
+    "browser_action": {
+        "default_title": "",
+        "default_icon": {
+            "16": "public/icon/logo-16.png",
+            "48": "public/icon/logo-48.png",
+            "128": "public/icon/logo-128.png"
+        },
+        "default_popup": "static/settings.html"
+    }
+}
