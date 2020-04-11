@@ -6,6 +6,8 @@ A Chrome extension that checks if links are associated with reputable science pu
 
 <img width="800" src="./public/screenshot/1.png">
 
+Video Demo [link](https://youtu.be/GQvBSo62oxE)
+
 # Thanks
 
 - [spyon](https://github.com/eddieherm/spyon)
