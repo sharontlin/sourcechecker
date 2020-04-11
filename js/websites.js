@@ -1,1 +1,1 @@
-var websites = ["nature.com", "dx.doi.org", "nap.edu"]
+var websites = ["nature.com", "dx.doi.org", "nap.edu", "journals.elsevier.com", "kirj.ee", ".berkalahayati.org", "revistas.udistrital.edu", "revistras.ucv.edu", "arquipelago.info", "hindawi.com", "banglajol.info", "aro.koyauniversity.org", "degruyter.com", "ojs.latu.org", "bjbas.springeropen.com", "kenzpub.com", "insist.unila.ac.id"]

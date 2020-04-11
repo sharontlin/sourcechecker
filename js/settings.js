@@ -6,6 +6,8 @@
 
 var store = chrome.storage;
 
+var activated;
+
 function $(id) {
   return document.getElementById(id);
 }
@@ -16,12 +18,11 @@ function $(id) {
  * @param settings{object} A settings object, as returned from |get()| or the
  * |onchanged| event.
  */
-
 function initUI(settings) {
-  if (settings['show_generic_filetypes']) {
-    $('show_generic_filetypes').checked = settings['show_generic_filetypes'];
+  if (activated) {
+    $('source_checking').checked = false;
   } else {
-    $('show_generic_filetypes').checked = false;
+    $('source_checking').checked = true;
   }
 }
 
@@ -29,10 +30,12 @@ function initUI(settings) {
  * Initializes the UI.
  */
 function init() {
-  store.sync.get(['show_generic_filetypes'], initUI);
+  activated = true;
+  store.sync.get(['source_checking'], initUI);
 
-  $('show_generic_filetypes').addEventListener('click', function () {
-    setPrefValue('show_generic_filetypes', this.checked);
+  $('source_checking').addEventListener('click', function () {
+    setPrefValue('source_checking', this.checked);
+    activated = !activated;
   });
 }
 
@@ -43,6 +46,7 @@ function init() {
  */
 function setPrefValue(key, value) {
   var package = {};
+
   package[key] = value;
   store.sync.set(package);
 }

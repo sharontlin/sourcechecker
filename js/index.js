@@ -1,5 +1,7 @@
 "use strict";
 
+var store = chrome.storage;
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 (function () {
@@ -224,7 +226,6 @@ console.log(1);
       document.getElementById(_id).style.display = 'none';
     }
   }
-
   function glide(e) {
     if (e.target.nodeName.toLowerCase() == "a") {
       var spyContainer = document.getElementById(_id);
