@@ -6,8 +6,6 @@
 
 var store = chrome.storage;
 
-var activated;
-
 function $(id) {
   return document.getElementById(id);
 }
@@ -18,11 +16,12 @@ function $(id) {
  * @param settings{object} A settings object, as returned from |get()| or the
  * |onchanged| event.
  */
+
 function initUI(settings) {
-  if (activated) {
-    $('source_checking').checked = false;
+  if (settings['source_checking']) {
+    $('source_checking').checked = settings['source_checking'];
   } else {
-    $('source_checking').checked = true;
+    $('source_checking').checked = false;
   }
 }
 
@@ -30,12 +29,10 @@ function initUI(settings) {
  * Initializes the UI.
  */
 function init() {
-  activated = true;
   store.sync.get(['source_checking'], initUI);
 
   $('source_checking').addEventListener('click', function () {
     setPrefValue('source_checking', this.checked);
-    activated = !activated;
   });
 }
 
@@ -46,7 +43,6 @@ function init() {
  */
 function setPrefValue(key, value) {
   var package = {};
-
   package[key] = value;
   store.sync.set(package);
 }

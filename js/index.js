@@ -211,47 +211,52 @@ console.log(1);
   }
 
   function show(e) {
-    if (e.target.nodeName.toLowerCase() == "a") {
-      var spyContainer = document.getElementById(_id);
-
-      if (!spyContainer) {
-        create();
-        return;
-      }
-
-      if (spyContainer.style.display !== 'block') {
-        spyContainer.style.display = 'block';
-      }
-    } else if (document.getElementById(_id)) {
-      document.getElementById(_id).style.display = 'none';
-    }
-  }
-  function glide(e) {
-    if (e.target.nodeName.toLowerCase() == "a") {
-      var spyContainer = document.getElementById(_id);
-
-      if (!spyContainer) {
-        create();
-        return;
-      }
-
-      var left = e.clientX + getScrollPos().left + _posBuffer;
-
-      var top = e.clientY + getScrollPos().top + _posBuffer;
-
-      spyContainer.innerHTML = showAttributes(e.target);
-
-      if (left + spyContainer.offsetWidth > window.innerWidth) {
-        spyContainer.style.left = left - spyContainer.offsetWidth + 'px';
-      } else {
-        spyContainer.style.left = left + 'px';
-      }
-
-      spyContainer.style.top = top + 'px';
-
-    } else if (document.getElementById(_id)) {
+    chrome.storage.sync.get(['source_checking'], function(result) {
+      if (!result['source_checking'] && e.target.nodeName.toLowerCase() == "a") {
+        var spyContainer = document.getElementById(_id);
+  
+        if (!spyContainer) {
+          create();
+          return;
+        }
+  
+        if (spyContainer.style.display !== 'block') {
+          spyContainer.style.display = 'block';
+        }
+      } else if (document.getElementById(_id)) {
         document.getElementById(_id).style.display = 'none';
-    }
+      }
+    });
+  }
+
+  function glide(e) {
+    chrome.storage.sync.get(['source_checking'], function(result) {
+      if (!result['source_checking'] && e.target.nodeName.toLowerCase() == "a") {
+        var spyContainer = document.getElementById(_id);
+  
+        if (!spyContainer) {
+          create();
+          return;
+        }
+  
+        var left = e.clientX + getScrollPos().left + _posBuffer;
+  
+        var top = e.clientY + getScrollPos().top + _posBuffer;
+  
+        spyContainer.innerHTML = showAttributes(e.target);
+  
+        if (left + spyContainer.offsetWidth > window.innerWidth) {
+          spyContainer.style.left = left - spyContainer.offsetWidth + 'px';
+        } else {
+          spyContainer.style.left = left + 'px';
+        }
+  
+        spyContainer.style.top = top + 'px';
+  
+      } else if (document.getElementById(_id)) {
+          document.getElementById(_id).style.display = 'none';
+      }
+    });
   }
 
   function getScrollPos() {
