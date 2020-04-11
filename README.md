@@ -4,7 +4,7 @@ A Chrome extension that checks if links are associated with reputable science pu
 
 # Demo
 
-<img width="400" src="./public/screenshot/1.png">
+<img width="800" src="./public/screenshot/1.png">
 
 # Thanks
 
